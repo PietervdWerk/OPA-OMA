@@ -85,4 +85,4 @@ jobs:
           context: .
           platforms: ${{ matrix.os }}/${{ matrix.arch }}
           push: true
-          tags: pietervdwerk/oma:latest, pietervdwerk/oma:${{ github.event.release.tag_name }} }}
+          tags: pietervdwerk/oma:latest, pietervdwerk/oma:${{ github.ref_name }} }}
