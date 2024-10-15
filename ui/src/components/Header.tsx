@@ -124,7 +124,7 @@ export const Header = () => {
   }
 
   return (
-    <header class="h-14 w-full min-h-14 flex justify-between">
+    <header class="w-full min-h-14 flex justify-between">
       <div class="items-center flex mx-2 ">
         <OpaIcon id="opa-logo" class="h-10" />
         <h3 class="text-xl hidden md:block text-nowrap">The Rego Playground</h3>

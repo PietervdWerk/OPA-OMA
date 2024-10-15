@@ -34,13 +34,13 @@ export default App
 
 const RootPage = (props: RouteSectionProps<unknown>) => {
   return (
-    <div class="flex w-screen h-screen">
-      <div class="min-w-14 bg-gray-300 flex flex-col justify-center items-center">
+    <div class="grid grid-cols-[3.5rem_1fr] grid-rows-[1fr] h-screen w-screen">
+      <div class="w-14 bg-gray-300 flex flex-col justify-center items-center">
         <SidebarItem href="/" icon={HomeIcon} />
         <SidebarItem href="/play" icon={PlayIcon} />
         <SidebarItem href="/decision-logs" icon={LogsIcon} />
       </div>
-      <div class="w-full">{props.children}</div>
+      <div>{props.children}</div>
     </div>
   )
 }
@@ -51,7 +51,10 @@ const SidebarItem = (props: {
 }) => {
   const location = useLocation()
   return (
-    <A href={props.href} class="flex flex-col my-2 p-2 items-center text-sm font-thin hover:bg-gray-200 rounded-md">
+    <A
+      href={props.href}
+      class="flex flex-col my-2 p-2 items-center text-sm font-thin hover:bg-gray-200 rounded-md"
+    >
       <props.icon
         class={`w-8 h-8 ${location.pathname === props.href ? 'stroke-blue-400' : 'stroke-white'}`}
       />
