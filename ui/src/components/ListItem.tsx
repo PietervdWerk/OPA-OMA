@@ -73,7 +73,7 @@ export const ListItem = (props: {
           </Show>
           <span class="text-sm mr-2">{new Date(props.item.timestamp).toUTCString()}</span>
           <Show when={props.item.path !== ''}>
-            <span class="text-sm mr-2">/{props.item.path}</span>
+            <span class="text-sm mr-2">{props.item.path}</span>
           </Show>
           <span class="text-sm mr-2">{props.item.decision_id}</span>
         </div>

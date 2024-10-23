@@ -44,7 +44,6 @@ export const FileTree: Component<{
   depth?: number
   filePath?: string
 }> = (props) => {
-  console.log(props.directory)
   if (props.directory.directories?.length === 1 && props.directory.name == null) {
     return (
       <FileTree
