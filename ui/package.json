@@ -33,6 +33,7 @@
   "dependencies": {
     "@kobalte/core": "^0.13.7",
     "@monaco-editor/loader": "^1.4.0",
+    "@solid-primitives/scheduled": "^1.4.4",
     "@solid-primitives/storage": "^4.2.1",
     "@solidjs/router": "^0.13.0",
     "class-variance-authority": "^0.7.0",

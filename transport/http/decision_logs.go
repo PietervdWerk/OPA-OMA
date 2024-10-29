@@ -24,7 +24,8 @@ func (s *Server) pushDecisionLog(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) listDecisionLogs(w http.ResponseWriter, r *http.Request) {
-	logs, err := s.app.ListDecisionLogs(r.Context())
+	search := r.URL.Query().Get("search")
+	logs, err := s.app.ListDecisionLogs(r.Context(), search)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

@@ -22,5 +22,5 @@ type App interface {
 	PlaygroundLogs(ctx context.Context) ([]playgroundlogs.PlaygroundLog, error)
 
 	PushDecisionLogs(ctx context.Context, req *models.DecisionLogRequest) error
-	ListDecisionLogs(ctx context.Context) ([]decisionlogs.DecisionLog, error)
+	ListDecisionLogs(ctx context.Context, search string) ([]decisionlogs.DecisionLog, error)
 }

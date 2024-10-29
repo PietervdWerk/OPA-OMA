@@ -5,10 +5,11 @@
     "open-policy-agent@0.66.0",
     "nodejs@22.8.0",
     "nodePackages.npm@10.8.3",
-    "oras@1.2.0"
+    "oras@1.2.0",
+    "sqlc@latest"
   ],
   "shell": {
     "init_hook": [],
-    "scripts": {}
+    "scripts":   {}
   }
 }

@@ -49,11 +49,27 @@ func (a *App) PushDecisionLogs(ctx context.Context, req *models.DecisionLogReque
 	return nil
 }
 
-func (a *App) ListDecisionLogs(ctx context.Context) ([]decisionlogs.DecisionLog, error) {
-	logs, err := a.decisionLogRepository.ListDecisionLogs(ctx)
-	if err != nil {
-		log.Debug().Err(err).Msg("failed to list decision logs")
-		return nil, err
+func (a *App) ListDecisionLogs(ctx context.Context, search string) ([]decisionlogs.DecisionLog, error) {
+	var logs []decisionlogs.DecisionLog
+	var err error
+	if search != "" {
+		logs, err = a.decisionLogRepository.ListDecisionLogsSearch(ctx, decisionlogs.ListDecisionLogsSearchParams{
+			DecisionID: "%" + search + "%",
+			Path:       "%" + search + "%",
+			Input:      "%" + search + "%",
+			Result:     "%" + search + "%",
+		})
+		if err != nil {
+			log.Debug().Err(err).Msg("failed to list decision logs")
+			return nil, err
+		}
+
+	} else {
+		logs, err = a.decisionLogRepository.ListDecisionLogs(ctx)
+		if err != nil {
+			log.Debug().Err(err).Msg("failed to list decision logs")
+			return nil, err
+		}
 	}
 
 	if len(logs) == 0 {
