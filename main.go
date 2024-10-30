@@ -48,7 +48,10 @@ func main() {
 	case contract.RevisionTypeGitlabPackages:
 		revisionRepository = revision.NewGitlabPackagesRevisionRepository(&conf.RevisionConfig.GitlabPackages)
 	case contract.RevisionTypeOCI:
-		revisionRepository = revision.NewOCIRevisionRepository(&conf.RevisionConfig.OCI)
+		revisionRepository, err = revision.NewOCIRevisionRepository(&conf.RevisionConfig.OCI)
+		if err != nil {
+			log.Fatal().Err(err).Msg("initializing revision repository")
+		}
 	}
 
 	opaExecutable, err := opa.Download(conf.OpaDownloadUrl)
